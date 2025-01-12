@@ -1,0 +1,4 @@
+package com.example.cardsms.Entity;
+
+public class CardsEntity {
+}
