@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
-import javax.smartcardio.CardNotPresentException;
+
 import java.util.Optional;
 
 @Service
