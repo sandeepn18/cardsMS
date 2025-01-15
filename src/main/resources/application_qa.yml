@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to cards service qa environment"
+  contactDetails:
+    name: "John Doe cards QA"
+    email: "Ig7dF@exampleQA.com"
+  onCallSupport:
+    - 54321
+    - 87654

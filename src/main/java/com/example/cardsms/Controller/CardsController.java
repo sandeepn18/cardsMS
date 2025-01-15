@@ -1,9 +1,11 @@
 package com.example.cardsms.Controller;
 
 import com.example.cardsms.DTO.CardsDTO;
+import com.example.cardsms.DTO.CardsInfoDto;
 import com.example.cardsms.DTO.ResponseDTO;
 import com.example.cardsms.Service.CardsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,11 @@ import org.springframework.web.bind.annotation.*;
 public class CardsController {
     @Autowired
     private CardsService cardsService;
+    @Value("${build.version}")
+    private String buildInfo;
+
+    @Autowired
+    private CardsInfoDto cardsInfoDto;
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> createCard(@RequestParam String mobileNumber) {
@@ -49,6 +56,20 @@ public class CardsController {
                 .status(HttpStatus.GONE)
                 .body("Card deleted successfully");
 
+    }
+
+    @GetMapping("/build-info")
+    public ResponseEntity<String> buildInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(buildInfo);
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<CardsInfoDto> getContactDetails(){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(cardsInfoDto);
     }
 
 
