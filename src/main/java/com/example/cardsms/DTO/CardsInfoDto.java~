@@ -1,0 +1,4 @@
+package com.example.cardsms.DTO;
+
+public record CardsInfoDto() {
+}
